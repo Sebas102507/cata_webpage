@@ -3181,3 +3181,115 @@ h4 {
     display: none;
   }
 }
+
+/* Research */
+.research {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  gap: 14px;
+}
+.research-item {
+  background: var(--tint);
+  border-radius: var(--r);
+  padding: 22px 24px;
+  display: grid;
+  gap: 10px;
+  align-content: start;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.research-item:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+.research-item h4 {
+  font-size: 1.3rem;
+  line-height: 1.2;
+}
+.research-summary {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+.ready-item .course-meta {
+  margin-top: -4px;
+}
+
+/* Documents gallery */
+.docs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 230px), 1fr));
+  gap: 16px;
+}
+.doc {
+  display: grid;
+  gap: 10px;
+  align-content: start;
+}
+.doc-thumb {
+  appearance: none;
+  border: 1px solid var(--line);
+  padding: 10px;
+  background: var(--tint);
+  border-radius: var(--r);
+  cursor: zoom-in;
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.doc-thumb:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--accent);
+}
+.doc-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  background: #fff;
+  border-radius: 6px;
+}
+.doc-body {
+  display: grid;
+  gap: 4px;
+  padding: 0 4px;
+}
+.doc-body h4 {
+  font-size: 1.05rem;
+  line-height: 1.25;
+}
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  appearance: none;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  font-size: 26px;
+  line-height: 1;
+  cursor: pointer;
+}
+.lightbox-nav.prev {
+  left: 16px;
+}
+.lightbox-nav.next {
+  right: 16px;
+}
+.lightbox img {
+  background: #fff;
+}
+@media (max-width: 600px) {
+  .lightbox {
+    padding: 56px 8px 24px;
+  }
+  .lightbox-nav {
+    top: auto;
+    bottom: 12px;
+    transform: none;
+  }
+}

@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import type { Credential, EducationItem, ExperienceItem } from '../data/experience';
+import type { Course, Credential, EducationItem, ExperienceItem, SimpleRole } from '../data/experience';
 import { IconExternal } from './Icons';
 import { logosFor } from './logos';
 import { TimelineList, type TimelineEntry } from './Section';
@@ -121,6 +121,37 @@ export function CredentialTimeline({ items }: { items: Credential[] }) {
     id: `cred-${i}`,
     meta: `${c.date} · ${c.issuer}`,
     logo: <Logo keys={c.logoKey ? [c.logoKey] : []} org={c.issuer} size={48} />,
+    title: c.name,
+    body: c.detail ? <p>{c.detail}</p> : undefined,
+  }));
+  return <TimelineList items={entries} />;
+}
+
+export function SimpleTimeline({ items }: { items: SimpleRole[] }) {
+  const entries: TimelineEntry[] = items.map((r, i) => ({
+    id: `${r.organisation}-${i}`,
+    meta: `${r.period} · ${r.location}`,
+    current: /present/i.test(r.period),
+    title: (
+      <>
+        {r.role} <span className="tl-at">· {r.organisation}</span>
+      </>
+    ),
+    body: (
+      <ul className="xp-list">
+        {r.bullets.map((b) => (
+          <li key={b}>{b}</li>
+        ))}
+      </ul>
+    ),
+  }));
+  return <TimelineList items={entries} />;
+}
+
+export function CourseTimeline({ items }: { items: Course[] }) {
+  const entries: TimelineEntry[] = items.map((c, i) => ({
+    id: `course-${i}`,
+    meta: `${c.date} · ${c.issuer}`,
     title: c.name,
     body: c.detail ? <p>{c.detail}</p> : undefined,
   }));

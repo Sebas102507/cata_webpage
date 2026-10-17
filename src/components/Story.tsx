@@ -46,10 +46,9 @@ export function Story() {
     <>
       <div className="story-layout">
         <aside className="story-aside">
-          <h3 className="story-aside-title">{emph('Five chapters, one *vocation*.')}</h3>
+          <h3 className="story-aside-title">{emph('Six chapters, one *vocation*.')}</h3>
           <p className="story-aside-text">
-            From a first semester taught over video calls to a prison practicum, a cum laude degree and a new life in Sydney. Every chapter taught me the same thing in a different
-            setting: people change when they feel heard.
+            From a classroom in Bogotá to a psychiatric clinic, a women’s prison, a cum laude degree and Lifeline training in Sydney. Every fact here is backed by a certificate in the documents section.
           </p>
           {feature && (
             <figure className="story-feature">
@@ -60,7 +59,7 @@ export function Story() {
                 <span className="quote-mark" aria-hidden="true">
                   “
                 </span>
-                Dignity does not stop at a prison gate.
+                “Responsible, open to learning and improvement, guided by respect and honesty.” Santiago Amaya Nassar, recommendation letter, 2025.
               </figcaption>
             </figure>
           )}
@@ -82,8 +81,7 @@ export function Story() {
                 {c.text.map((t) => (
                   <p key={t.slice(0, 24)}>{t}</p>
                 ))}
-                {c.lesson && <p className="chapter-lesson">{emph(`*${c.lesson}*`)}</p>}
-                {c.imgs.length > 0 && (
+                                {c.imgs.length > 0 && (
                   <div className="chapter-photos">
                     {c.imgs.map((img) => (
                       <figure key={img.src} className={img.fit === 'contain' ? 'is-badge' : undefined}>

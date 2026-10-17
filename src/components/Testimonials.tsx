@@ -3,6 +3,7 @@ import type { Testimonial } from '../data/testimonials';
 const KIND_LABEL: Record<Testimonial['kind'], string> = {
   recommendation: 'Recommendation letter',
   recognition: 'Institutional recognition',
+  evaluation: 'Placement evaluation',
   certificate: 'Work certificate',
 };
 

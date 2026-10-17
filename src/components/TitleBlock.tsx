@@ -61,7 +61,7 @@ export function About() {
           ))}
           <div className="about-actions">
             <a className="btn btn-outline" href="#story">
-              About me
+              My story
             </a>
             <a className="btn btn-link" href={PROFILE.linkedin} target="_blank" rel="noopener noreferrer">
               <IconLinkedIn /> LinkedIn

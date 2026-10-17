@@ -15,15 +15,11 @@ npm run lint
 
 `deploy.sh` publishes `dist/` to GitHub Pages manually with `gh-pages`, but the normal path is the GitHub Actions workflow in `.github/workflows/deploy.yml`: every push to `main` builds the site and deploys it to https://cataespitia.com (custom domain set in the repo Pages settings; `public/CNAME` mirrors it). `base` in `vite.config.ts` is `/`; it would need to be `/cata_webpage/` only if the site went back to the github.io URL.
 
-## Before publishing
+## Content and privacy
 
-`src/data/profile.ts` holds placeholders that must be replaced:
+All facts come from Catalina's CV (October 2026) and the certificates in `src/assets/docs/`. Contact details in `src/data/profile.ts` are the real email and LinkedIn URL from the CV; the phone number is deliberately not published.
 
-- `email` is `catalina.espitia@example.com`.
-- `linkedin` is a guessed URL.
-- `site` is a placeholder domain.
-
-Nothing on the page shows identity numbers (passport, cédula, police-check or Working With Children Check numbers, date of birth or home address). Keep it that way: the professional card number is the only identifier shown, because it is the public way to verify a psychologist's licence in Colombia.
+Nothing on the page shows identity numbers (passport, cédula, police-check or Working With Children Check numbers), date of birth or home address. The document images were exported with those fields blacked out (`scratchpad/export_docs.py` at build time of this repo did the redaction with PyMuPDF; re-export the same way if a document is added). The professional card number and the APS reference are shown because they are the public way to verify the licence and the assessment.
 
 ## Structure
 
@@ -31,8 +27,10 @@ Nothing on the page shows identity numbers (passport, cédula, police-check or W
 src/
   data/
     profile.ts        name, title, tagline, abstract, languages, skills
-    story.ts          the five story chapters and their photos
-    experience.ts     roles and placements, education, credentials
+    story.ts          the six story chapters and their photos
+    experience.ts     psychology roles and placements, other work, volunteering, education, courses, credentials, awards
+    research.ts       thesis, book chapter and research projects
+    documents.ts      the document gallery entries (file name in src/assets/docs, title, issuer, date, group)
     curriculum.ts     every course from the transcript, grouped by area, plus semester averages
     testimonials.ts   recommendation letter, INPEC recognition, work certificate (quoted verbatim)
     personal.ts       value pillars, "ready to work in Australia" items, interests
@@ -40,6 +38,7 @@ src/
   styles/global.css   design tokens, layout, components
   assets/
     me/profile.jpg    hero portrait (cropped from the graduation photo)
+    docs/             redacted JPG scans of diplomas, distinctions, licence, assessments and certificates
     story/            photos used by story chapters and experience entries (matched by file name)
     companies/        optional organisation logos: <key>_logo.png replaces the wordmark for that key
                       (keys: sergio_arboleda, colpsic, inpec, tienda_de_suenos, pearson, nsw_police, wwcc)
