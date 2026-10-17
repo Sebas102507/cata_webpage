@@ -9,11 +9,12 @@ import { Interests, Languages, ReadyGrid, ValuePillars } from './components/Pers
 import { Section, SubHead, TwoCol } from './components/Section';
 import { Story } from './components/Story';
 import { TestimonialList } from './components/Testimonials';
-import { Hero, LogoStrip, Skills } from './components/TitleBlock';
+import { About, FocusAreas, Hero, LogoStrip, Skills, Statement } from './components/TitleBlock';
 import { emph } from './lib/emph';
 
 const NAV: NavItem[] = [
-  { id: 'story', label: 'Story' },
+  { id: 'about', label: 'About' },
+  { id: "story", label: "Story" },
   { id: 'experience', label: 'Experience' },
   { id: 'education', label: 'Education' },
   { id: 'coursework', label: 'Coursework' },
@@ -82,8 +83,11 @@ export default function Home() {
 
       <main id="main">
         <Hero />
-        <LogoStrip />
+        <Statement />
+        <About />
+        <FocusAreas />
         <ValuePillars />
+        <LogoStrip />
 
         <Section id="story" eyebrow="The story" title="From *Bogotá* to Sydney, in five chapters." intro="Where I come from, what I trained in, and what each stop taught me.">
           <Story />

@@ -28,10 +28,8 @@ export function Nav({ items, activeId }: { items: NavItem[]; activeId: string | 
     <header className={`nav${scrolled ? ' is-scrolled' : ''}`}>
       <div className="nav-inner">
         <a className="brand" href="#top" aria-label={`${PROFILE.shortName}, back to top`}>
-          <span className="brand-mark" aria-hidden="true">
-            {PROFILE.initials}
-          </span>
-          <span>{PROFILE.shortName}</span>
+          <span className="brand-script">{PROFILE.shortName}</span>
+          <span className="brand-sub">Psychologist</span>
         </a>
 
         <nav id="primary-nav" className={`nav-links${open ? ' is-open' : ''}`} aria-label="Sections">
@@ -49,7 +47,7 @@ export function Nav({ items, activeId }: { items: NavItem[]; activeId: string | 
           <a className="icon-btn" href={`mailto:${PROFILE.email}`} aria-label="Send an email">
             <IconMail />
           </a>
-          <a className="btn btn-primary btn-sm nav-cta" href={`mailto:${PROFILE.email}`}>
+          <a className="btn btn-outline btn-sm nav-cta" href={`mailto:${PROFILE.email}`}>
             Contact <span className="arrow" aria-hidden="true">↗</span>
           </a>
           <button

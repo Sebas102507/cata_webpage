@@ -1,67 +1,31 @@
 import portrait from '../assets/me/profile.jpg';
-import { PROFILE, SKILLS } from '../data/profile';
-import { IconLinkedIn, IconMail, IconPin } from './Icons';
+import aboutPhoto from '../assets/story/graduation_garden.jpg';
+import { FOCUS_AREAS, HERO_QUOTE, PROFILE, SKILLS, STATEMENT } from '../data/profile';
+import { IconLinkedIn, IconMail } from './Icons';
 import { LOGOS, LOGO_NAMES } from './logos';
 import { emph } from '../lib/emph';
 
-const HERO_TAGS_LEFT = ['Clinical psychology', 'Legal psychology', 'Mental health'];
-const HERO_TAGS_RIGHT = ['Community work', 'Research', 'Spanish · English'];
-
 export function Hero() {
   return (
-    <section className="hero" id="top" aria-label="Introduction">
+    <section className="hero2" id="top" aria-label="Introduction">
       <div className="container">
-        <div className="hero-head">
-          <span className="eyebrow">
-            <IconPin /> {PROFILE.location} · from {PROFILE.origin}
-          </span>
-          <h1 className="hero-title">{emph('Every person deserves to be *heard*.')}</h1>
-        </div>
-
-        <div className="hero-stage">
-          <span className="hero-ghost" aria-hidden="true">
-            PSYCHOLOGIST
-          </span>
-          <ul className="hero-tags left" aria-label="Focus areas">
-            {HERO_TAGS_LEFT.map((t) => (
-              <li key={t}>{t}</li>
-            ))}
-          </ul>
-          <div className="hero-photo">
-            <img src={portrait} alt={`Portrait of ${PROFILE.shortName} holding her Psychology diploma`} width={969} height={1400} fetchPriority="high" />
+        <div className="hero2-panel">
+          <div className="hero2-quote">
+            <blockquote>
+              <p>“{HERO_QUOTE.text}”</p>
+              <cite>{HERO_QUOTE.author}</cite>
+            </blockquote>
+            <div className="hero2-actions">
+              <a className="btn btn-outline" href="#about">
+                Meet Catalina
+              </a>
+              <a className="btn btn-link" href={`mailto:${PROFILE.email}`}>
+                <IconMail /> Email me
+              </a>
+            </div>
           </div>
-          <ul className="hero-tags right" aria-label="Strengths">
-            {HERO_TAGS_RIGHT.map((t) => (
-              <li key={t}>{t}</li>
-            ))}
-          </ul>
-          <span className="hero-bubble a" aria-hidden="true">
-            Hello, my name is
-          </span>
-          <span className="hero-bubble b" aria-hidden="true">
-            Psychologist, cum laude
-          </span>
-        </div>
-        <div className="hero-name" aria-hidden="true">
-          {PROFILE.shortName}
-        </div>
-
-        <div className="hero-below">
-          <p className="hero-sub">{PROFILE.tagline}</p>
-          <div className="hero-actions">
-            <a className="btn btn-primary" href="#story">
-              Read my story <span className="arrow" aria-hidden="true">↗</span>
-            </a>
-            <a className="btn btn-ghost" href={`mailto:${PROFILE.email}`}>
-              <IconMail /> Email me
-            </a>
-          </div>
-          <div className="hero-social">
-            <a href={PROFILE.linkedin} target="_blank" rel="noopener noreferrer">
-              <IconLinkedIn /> LinkedIn
-            </a>
-            <span>{PROFILE.title}</span>
-            <span className="hero-scroll">Scroll down ↓</span>
+          <div className="hero2-photo">
+            <img src={portrait} alt={`Portrait of ${PROFILE.shortName}`} width={969} height={1400} fetchPriority="high" />
           </div>
         </div>
       </div>
@@ -69,7 +33,76 @@ export function Hero() {
   );
 }
 
-/** Organisations shown under the hero. A logo file in src/assets/companies/<key>_logo.* replaces the wordmark automatically. */
+export function Statement() {
+  return (
+    <section className="statement" aria-label="Approach">
+      <div className="container">
+        <p>{STATEMENT}</p>
+      </div>
+    </section>
+  );
+}
+
+export function About() {
+  return (
+    <section className="about" id="about" aria-labelledby="about-h">
+      <div className="container about-grid">
+        <div className="about-photo">
+          <img src={aboutPhoto} alt={`${PROFILE.shortName} after her graduation ceremony`} loading="lazy" />
+          <span className="decor-half" aria-hidden="true" />
+        </div>
+        <div className="about-text">
+          <span className="kicker">Welcome</span>
+          <h2 id="about-h" className="script">
+            I am Catalina!
+          </h2>
+          {PROFILE.abstract.map((p) => (
+            <p key={p.slice(0, 20)}>{p}</p>
+          ))}
+          <div className="about-actions">
+            <a className="btn btn-outline" href="#story">
+              About me
+            </a>
+            <a className="btn btn-link" href={PROFILE.linkedin} target="_blank" rel="noopener noreferrer">
+              <IconLinkedIn /> LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function IconLeaf() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M5 19c0-8 5-13 14-14-1 9-6 14-14 14z" />
+      <path d="M5 19l8-8" />
+    </svg>
+  );
+}
+
+export function FocusAreas() {
+  return (
+    <section className="focus" aria-labelledby="focus-h">
+      <div className="container">
+        <h3 id="focus-h" className="kicker">
+          Areas of practice
+        </h3>
+        <ul className="focus-list">
+          {FOCUS_AREAS.map((f) => (
+            <li key={f}>
+              <IconLeaf />
+              {f}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  );
+}
+
+/** Organisations strip. A logo file in src/assets/companies/<key>_logo.* replaces the wordmark automatically. */
 const ORGS: { key: string; name: string }[] = [
   { key: 'sergio_arboleda', name: 'Universidad Sergio Arboleda' },
   { key: 'colpsic', name: 'Colegio Colombiano de Psicólogos' },
@@ -105,7 +138,7 @@ export function Skills() {
     <div className="skills compact">
       {SKILLS.map((s) => (
         <div className="skill" key={s.area}>
-          <h4>{s.area}</h4>
+          <h4>{emph(s.area)}</h4>
           <div className="chips">
             {s.items.map((i) => (
               <span className="chip" key={i}>

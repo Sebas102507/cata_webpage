@@ -47,3 +47,28 @@ export const SKILLS: Skill[] = [
     items: ['Organisational change management', 'Programme coordination and logistics', 'Customer service and sales', 'Virtual-session support', 'Spanish and English'],
   },
 ];
+
+/** Quote shown in the hero panel. */
+export const HERO_QUOTE = {
+  text: 'I am not what happened to me, I am what I choose to become.',
+  author: 'Carl Jung',
+};
+
+/** The one-sentence statement band under the hero. */
+export const STATEMENT = 'Compassionate, evidence-based psychological support, dedicated to helping people feel heard, understood and able to move forward.';
+
+/** Areas of practice, drawn from the degree programme, the placements and the COLPSIC diplomas. */
+export const FOCUS_AREAS: string[] = [
+  'Clinical and health psychology',
+  'Psychopathology and assessment',
+  'Legal and forensic psychology',
+  'Violence and conflict',
+  'Social reintegration',
+  'Psychosocial intervention',
+  'Community psychology',
+  'Development across the lifespan',
+  'Neurodevelopment assessment',
+  'Mental health and suicide prevention',
+  'Psychology and education',
+  'Research and psychometrics',
+];
