@@ -13,7 +13,7 @@ npm run build      # type-check + production build into dist/
 npm run lint
 ```
 
-`deploy.sh` publishes `dist/` to GitHub Pages manually with `gh-pages`, but the normal path is the GitHub Actions workflow in `.github/workflows/deploy.yml`: every push to `main` builds the site and deploys it to https://sebas102507.github.io/cata_webpage/. `base` in `vite.config.ts` is `/cata_webpage/` for that URL; change it to `/` and add a `public/CNAME` when a custom domain is attached.
+`deploy.sh` publishes `dist/` to GitHub Pages manually with `gh-pages`, but the normal path is the GitHub Actions workflow in `.github/workflows/deploy.yml`: every push to `main` builds the site and deploys it to https://cataespitia.com (custom domain set in the repo Pages settings; `public/CNAME` mirrors it). `base` in `vite.config.ts` is `/`; it would need to be `/cata_webpage/` only if the site went back to the github.io URL.
 
 ## Before publishing
 
