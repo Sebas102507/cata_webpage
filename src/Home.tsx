@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { AWARDS, COURSES, CREDENTIALS, EDUCATION, OTHER_WORK, VOLUNTEERING, WORK } from './data/experience';
 import { RESEARCH } from './data/research';
 import { TESTIMONIALS } from './data/testimonials';
-import { Curriculum, SemesterAverages } from './components/Curriculum';
 import { DocumentGallery } from './components/Documents';
 import { CourseTimeline, CredentialTimeline, EducationTimeline, SimpleTimeline, WorkTimeline } from './components/Experience';
 import { ContactCta, Footer } from './components/Footer';
@@ -145,11 +144,6 @@ export default function Home() {
             <SubHead title="Licence, assessments, language and checks" count={CREDENTIALS.length} />
             <CredentialTimeline items={CREDENTIALS} />
           </TwoCol>
-          <SubHead title="Coursework, *course by course*" />
-          <p className="sub-intro">Every subject from the official transcript, with its grade out of 5. Filter by area to see the clinical, legal, social or research track.</p>
-          <SemesterAverages />
-          <div style={{ height: 16 }} />
-          <Curriculum />
         </Section>
 
         <Section id="research" eyebrow="Research and awards" title="Research, a *book chapter*, and the recognitions along the way." intro="A thesis, a chapter under editorial review, five research and community projects, and four distinctions.">
