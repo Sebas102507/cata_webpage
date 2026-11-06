@@ -29,7 +29,7 @@ export function Nav({ items, activeId }: { items: NavItem[]; activeId: string | 
       <div className="nav-inner">
         <a className="brand" href="#top" aria-label={`${PROFILE.shortName}, back to top`}>
           <span className="brand-script">{PROFILE.shortName}</span>
-          <span className="brand-sub">Psychologist</span>
+          <span className="brand-sub">Psychology graduate</span>
         </a>
 
         <nav id="primary-nav" className={`nav-links${open ? ' is-open' : ''}`} aria-label="Sections">
